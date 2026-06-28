@@ -215,7 +215,7 @@ export default function ContactSection() {
             <div className="flex flex-col justify-end gap-3 md:flex-row">
               {isConfirming && !hasSubmitted && (
                 <button
-                  className="w-full border border-[#393a47] bg-white px-10 py-1.5 text-sm text-[#393a47] transition-colors hover:bg-[#393a47] hover:text-white md:w-auto"
+                  className="w-full border border-[#393a47] bg-white px-10 py-1.5 text-sm text-[#393a47] transition-colors hover:bg-[#393a47] hover:text-white disabled:cursor-not-allowed disabled:border-[#a9a9a9] disabled:bg-[#eeeeee] disabled:text-[#868686] disabled:hover:bg-[#eeeeee] disabled:hover:text-[#868686] md:w-auto"
                   disabled={submitStatus === "sending"}
                   type="button"
                   onClick={handleEdit}
@@ -225,7 +225,7 @@ export default function ContactSection() {
               )}
               {!hasSubmitted && (
                 <button
-                  className="w-full border border-[#393a47] bg-[#393a47] px-10 py-1.5 text-sm text-white transition-colors hover:bg-white hover:text-[#393a47] md:w-auto"
+                  className="w-full border border-[#393a47] bg-[#393a47] px-10 py-1.5 text-sm text-white transition-colors hover:bg-white hover:text-[#393a47] disabled:cursor-not-allowed disabled:border-[#a9a9a9] disabled:bg-[#eeeeee] disabled:text-[#868686] disabled:hover:bg-[#eeeeee] disabled:hover:text-[#868686] md:w-auto"
                   disabled={!googleAppsScriptUrl || submitStatus === "sending"}
                   type="submit"
                 >
