@@ -8,8 +8,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-line-seed-jp), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
+  --text-xs--line-height: 2;
+  --text-sm--line-height: 2;
+  --text-base--line-height: 2;
+  --text-lg--line-height: 2;
+  --text-xl--line-height: 2;
+  --text-2xl--line-height: 2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +27,367 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #393a47;
+  font-family: var(--font-line-seed-jp), sans-serif;
+  letter-spacing: 0.08em;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.site-load-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: #ffffff;
+  animation: site-load-curtain 1200ms cubic-bezier(0.76, 0, 0.24, 1) both;
+  transform-origin: top;
+}
+
+.page-load-enter #top :where(.font-display, p) {
+  animation: page-load-text 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, filter, transform;
+}
+
+.page-load-enter #top h1 {
+  animation-delay: 360ms;
+}
+
+.load-typing-line {
+  display: block;
+}
+
+.page-load-enter #top .load-typing-line {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: load-typing-reveal 720ms steps(10, end) both;
+}
+
+.page-load-enter #top .load-typing-line::after {
+  content: "";
+  position: absolute;
+  top: 0.12em;
+  right: 0;
+  width: 2px;
+  height: 0.78em;
+  background: #393a47;
+  animation: load-typing-caret 720ms steps(1, end) both;
+}
+
+.page-load-enter #top .load-typing-line-first {
+  animation-delay: 720ms;
+}
+
+.page-load-enter #top .load-typing-line-first::after {
+  animation-delay: 720ms;
+}
+
+.page-load-enter #top .load-typing-line-second {
+  animation-delay: 1240ms;
+}
+
+.page-load-enter #top .load-typing-line-second::after {
+  animation:
+    load-typing-caret 720ms steps(1, end) 1240ms both,
+    load-typing-caret-blink 900ms steps(1, end) 1960ms 2;
+}
+
+.page-load-enter #top p:first-child {
+  animation-delay: 280ms;
+}
+
+.page-load-enter #top p:last-child {
+  animation-delay: 560ms;
+}
+
+.page-load-enter #top [data-load-image],
+.page-load-enter .shared-fixed-photo img {
+  animation: page-load-image 1100ms cubic-bezier(0.22, 1, 0.36, 1) 420ms both;
+  will-change: opacity, filter, transform;
+}
+
+.section-fade-switch {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-fade-switch.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-fade-switch h2.font-display {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.section-fade-switch h2.font-display::after {
+  content: "";
+  position: absolute;
+  top: 0.12em;
+  right: 0;
+  width: 2px;
+  height: 0.78em;
+  background: #393a47;
+  opacity: 0;
+}
+
+.section-fade-switch.is-visible h2.font-display {
+  animation: load-typing-reveal 760ms steps(10, end) 160ms both;
+}
+
+.section-fade-switch.is-visible h2.font-display::after {
+  animation:
+    load-typing-caret 760ms steps(1, end) 160ms both,
+    load-typing-caret-blink 900ms steps(1, end) 920ms 1;
+}
+
+.contact-fade-enter {
+  animation: contact-fade-enter 520ms ease-out both;
+}
+
+.contact-success-enter {
+  animation: contact-success-enter 520ms ease-out both;
+}
+
+.contact-form-fields > label {
+  animation: contact-field-fade-enter 520ms ease-out both;
+}
+
+.contact-form-fields > label:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.contact-form-fields > label:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.contact-check-mark {
+  animation: contact-check-mark 520ms ease-out 120ms both;
+}
+
+.language-text-exit :where(h1, h2, h3, p, li, a, button) {
+  animation: language-text-exit 260ms cubic-bezier(0.32, 0, 0.67, 0) both;
+  will-change: opacity, filter, transform;
+}
+
+.language-text-enter :where(h1, h2, h3, p, li, a, button) {
+  animation: language-text-enter 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, filter, transform;
+}
+
+.language-text-exit section:nth-child(2)
+  :where(h1, h2, h3, p, li, a, button),
+.language-text-enter section:nth-child(2)
+  :where(h1, h2, h3, p, li, a, button) {
+  animation-delay: 25ms;
+}
+
+.language-text-exit section:nth-child(3)
+  :where(h1, h2, h3, p, li, a, button),
+.language-text-enter section:nth-child(3)
+  :where(h1, h2, h3, p, li, a, button) {
+  animation-delay: 50ms;
+}
+
+.language-text-exit section:nth-child(n + 4)
+  :where(h1, h2, h3, p, li, a, button),
+.language-text-enter section:nth-child(n + 4)
+  :where(h1, h2, h3, p, li, a, button) {
+  animation-delay: 75ms;
+}
+
+@keyframes contact-fade-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-field-fade-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes site-load-curtain {
+  0% {
+    transform: scaleY(1);
+  }
+
+  46% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes page-load-text {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-load-image {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(1.035);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes load-typing-reveal {
+  0% {
+    max-width: 0;
+  }
+
+  100% {
+    max-width: 100%;
+  }
+}
+
+@keyframes load-typing-caret {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes load-typing-caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes language-text-exit {
+  from {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateX(-56px);
+  }
+}
+
+@keyframes language-text-enter {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(64px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes contact-success-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-check-mark {
+  0% {
+    transform: scale(0.72);
+  }
+
+  70% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-load-curtain {
+    display: none;
+  }
+
+  .section-fade-switch {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .contact-fade-enter,
+  .contact-success-enter,
+  .contact-form-fields > label,
+  .contact-check-mark,
+  .site-load-curtain,
+  .page-load-enter #top :where(.font-display, p),
+  .page-load-enter #top .load-typing-line,
+  .page-load-enter #top .load-typing-line::after,
+  .page-load-enter #top [data-load-image],
+  .page-load-enter .shared-fixed-photo img,
+  .section-fade-switch.is-visible h2.font-display,
+  .section-fade-switch.is-visible h2.font-display::after,
+  .language-text-exit :where(h1, h2, h3, p, li, a, button),
+  .language-text-enter :where(h1, h2, h3, p, li, a, button) {
+    animation: none;
+  }
 }
