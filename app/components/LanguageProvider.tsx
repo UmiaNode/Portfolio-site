@@ -175,6 +175,9 @@ const translations = {
       confirm: "この内容で送信します",
       edit: "修正する",
       complete: "送信が完了しました。",
+      sending: "送信中です。",
+      failed:
+        "送信できませんでした。時間をおいて再度お試しいただくか、メールでご連絡ください。",
       missingUrl:
         "送信先が未設定です。NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL を設定してください。",
     },
@@ -322,6 +325,9 @@ const translations = {
       confirm: "Send with this content",
       edit: "Edit",
       complete: "Your message has been sent.",
+      sending: "Sending.",
+      failed:
+        "Your message could not be sent. Please try again later or contact me by email.",
       missingUrl:
         "Submission URL is not configured. Please set NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL.",
     },
@@ -468,6 +474,9 @@ const translations = {
       confirm: "この内容で送ります",
       edit: "修正する",
       complete: "送信できました。",
+      sending: "送信中です。",
+      failed:
+        "送信できませんでした。時間をおいてもう一度試すか、メールで連絡してください。",
       missingUrl:
         "送信先が未設定です。NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL を設定してください。",
     },

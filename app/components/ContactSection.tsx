@@ -15,20 +15,48 @@ export default function ContactSection() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [isConfirming, setIsConfirming] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     if (!isConfirming) {
-      event.preventDefault();
       setIsConfirming(true);
+      setSubmitStatus("idle");
       return;
     }
 
-    setHasSubmitted(true);
+    if (!googleAppsScriptUrl || submitStatus === "sending") {
+      return;
+    }
+
+    setSubmitStatus("sending");
+
+    try {
+      const body = new URLSearchParams();
+      body.set("name", formValues.name);
+      body.set("email", formValues.email);
+      body.set("message", formValues.message);
+
+      await fetch(googleAppsScriptUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body,
+      });
+
+      setHasSubmitted(true);
+      setSubmitStatus("success");
+    } catch {
+      setSubmitStatus("error");
+    }
   };
 
   const handleEdit = () => {
     setHasSubmitted(false);
     setIsConfirming(false);
+    setSubmitStatus("idle");
   };
 
   const buttonLabel = isConfirming ? t.contact.confirm : t.contact.submit;
@@ -49,10 +77,7 @@ export default function ContactSection() {
           <p className="text-sm">{t.contact.lead}</p>
 
           <form
-            action={googleAppsScriptUrl}
             className="flex w-full flex-col gap-6"
-            method="post"
-            target="google-apps-script-hidden-frame"
             onSubmit={handleSubmit}
           >
             <div
@@ -153,7 +178,29 @@ export default function ContactSection() {
               <p className="text-xs text-red-600">{t.contact.missingUrl}</p>
             )}
 
-            {hasSubmitted && (
+            {submitStatus === "sending" && (
+              <div
+                className="contact-fade-enter flex items-center gap-3 border border-[#393a47] bg-white px-4 py-3"
+                aria-live="polite"
+              >
+                <span className="size-2 shrink-0 animate-pulse rounded-full bg-[#393a47]" />
+                <p className="text-sm">{t.contact.sending}</p>
+              </div>
+            )}
+
+            {submitStatus === "error" && (
+              <div
+                className="contact-fade-enter flex items-center gap-3 border border-red-600 bg-white px-4 py-3 text-red-600"
+                aria-live="assertive"
+              >
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-red-600 text-sm leading-none">
+                  !
+                </span>
+                <p className="text-sm">{t.contact.failed}</p>
+              </div>
+            )}
+
+            {submitStatus === "success" && (
               <div
                 className="contact-fade-enter flex items-center gap-3 border border-[#393a47] bg-white px-4 py-3"
                 aria-live="polite"
@@ -169,6 +216,7 @@ export default function ContactSection() {
               {isConfirming && !hasSubmitted && (
                 <button
                   className="w-full border border-[#393a47] bg-white px-10 py-1.5 text-sm text-[#393a47] transition-colors hover:bg-[#393a47] hover:text-white md:w-auto"
+                  disabled={submitStatus === "sending"}
                   type="button"
                   onClick={handleEdit}
                 >
@@ -178,7 +226,7 @@ export default function ContactSection() {
               {!hasSubmitted && (
                 <button
                   className="w-full border border-[#393a47] bg-[#393a47] px-10 py-1.5 text-sm text-white transition-colors hover:bg-white hover:text-[#393a47] md:w-auto"
-                  disabled={!googleAppsScriptUrl}
+                  disabled={!googleAppsScriptUrl || submitStatus === "sending"}
                   type="submit"
                 >
                   {buttonLabel}
@@ -186,11 +234,6 @@ export default function ContactSection() {
               )}
             </div>
           </form>
-          <iframe
-            className="hidden"
-            name="google-apps-script-hidden-frame"
-            title="google-apps-script-hidden-frame"
-          />
         </div>
       </div>
 
