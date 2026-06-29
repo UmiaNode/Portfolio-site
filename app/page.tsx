@@ -12,13 +12,7 @@ import SharedFixedLogoArea from "./components/SharedFixedLogoArea";
 import SharedFixedPhotoArea from "./components/SharedFixedPhotoArea";
 
 export default function Home() {
-  const { languageTransitionPhase, t } = useLanguage();
-  const languageTransitionClass =
-    languageTransitionPhase === "exit"
-      ? "language-text-exit"
-      : languageTransitionPhase === "enter"
-        ? "language-text-enter"
-        : "";
+  const { t } = useLanguage();
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -59,7 +53,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={`page-load-enter ${languageTransitionClass}`}>
+    <main className="page-load-enter">
       <SharedFixedPhotoArea>
         <SectionFade>
           <section

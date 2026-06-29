@@ -3,14 +3,29 @@
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import GlobalNav from "./GlobalNav";
-import { LanguageProvider } from "./LanguageProvider";
+import { LanguageProvider, useLanguage } from "./LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function SiteShell({ children }: { children: ReactNode }) {
+  return (
+    <LanguageProvider>
+      <SiteShellContent>{children}</SiteShellContent>
+    </LanguageProvider>
+  );
+}
+
+function SiteShellContent({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const { languageTransitionPhase } = useLanguage();
   const previousPathnameRef = useRef<string | null>(null);
   const [isWorksRouteTransitioning, setIsWorksRouteTransitioning] =
     useState(false);
+  const languageTransitionClass =
+    languageTransitionPhase === "exit"
+      ? "language-text-exit"
+      : languageTransitionPhase === "enter"
+        ? "language-text-enter"
+        : "";
 
   useEffect(() => {
     const previousPathname = previousPathnameRef.current;
@@ -37,7 +52,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   return (
-    <LanguageProvider>
+    <div className={languageTransitionClass}>
       <div className="site-load-curtain" aria-hidden="true" />
       <div
         className={`works-route-transition ${
@@ -52,6 +67,6 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       <LanguageSwitcher fixed />
       <GlobalNav fixed />
       {children}
-    </LanguageProvider>
+    </div>
   );
 }
