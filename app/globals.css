@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -18,13 +19,6 @@
   --text-2xl--line-height: 2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: #393a47;
@@ -35,6 +29,7 @@ body {
 }
 
 html {
+  background: var(--background);
   scroll-padding-top: 96px;
 }
 
