@@ -34,6 +34,30 @@ body {
   font-size: 14px;
 }
 
+html {
+  scroll-padding-top: 96px;
+}
+
+#top,
+#works,
+#about,
+#contact {
+  scroll-margin-top: 96px;
+}
+
+@media (width >= 48rem) {
+  html {
+    scroll-padding-top: 0;
+  }
+
+  #top,
+  #works,
+  #about,
+  #contact {
+    scroll-margin-top: 0;
+  }
+}
+
 .site-load-curtain {
   position: fixed;
   inset: 0;
