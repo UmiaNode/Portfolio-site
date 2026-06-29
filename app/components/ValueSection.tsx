@@ -6,8 +6,11 @@ export default function ValueSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="value" className="relative z-10 flex flex-col bg-white md:min-h-dvh">
-      <div className="relative flex w-full items-center bg-white px-6 py-[60px] md:min-h-dvh md:px-16 md:py-0">
+    <section
+      id="value"
+      className="relative z-10 flex flex-col bg-white md:min-h-dvh"
+    >
+      <div className="relative flex w-full items-center bg-white px-6 py-15 md:min-h-dvh md:px-16 md:py-0">
         <div className="flex flex-col gap-8">
           <h2 className="font-display text-[50px] leading-none tracking-[0.06em] md:text-[90px]">
             VALUE
@@ -30,7 +33,6 @@ export default function ValueSection() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

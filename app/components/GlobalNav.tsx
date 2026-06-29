@@ -103,7 +103,7 @@ export default function GlobalNav({
         >
           <span
             aria-hidden="true"
-            className={`h-0 w-0 border-y-[3.5px] border-l-[8px] border-y-transparent border-l-[#393a47] transition-all duration-300 ease-out ${
+            className={`h-0 w-0 border-y-[3.5px] border-l-8 border-y-transparent border-l-[#393a47] transition-all duration-300 ease-out ${
               activeSection === item.id
                 ? "translate-x-0 opacity-100"
                 : "w-0 -translate-x-1 border-l-0 opacity-0"

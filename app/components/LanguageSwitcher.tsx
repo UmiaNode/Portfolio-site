@@ -44,12 +44,14 @@ export default function LanguageSwitcher({
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-full left-0 h-4 w-[60px] group-hover:pointer-events-auto"
+        className="pointer-events-none absolute top-full left-0 h-4 w-15 group-hover:pointer-events-auto"
       />
 
       <div
         className={`absolute top-[calc(100%+16px)] left-0 flex flex-col gap-3 text-xs leading-none transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 ${
-          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          isOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
         }`}
       >
         {languages.map((language) => (
@@ -57,7 +59,7 @@ export default function LanguageSwitcher({
             key={language.label}
             type="button"
             aria-pressed={currentLanguage === language.value}
-            className="group/item relative h-3 w-[80px] cursor-pointer text-left"
+            className="group/item relative h-3 w-20 cursor-pointer text-left"
             onClick={() => {
               setLanguage(language.value);
               setIsOpen(false);
