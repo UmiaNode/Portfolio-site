@@ -191,6 +191,9 @@ main {
 
 .section-fade-switch {
   background: var(--background);
+}
+
+.section-fade-switch > * {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -199,7 +202,7 @@ main {
   will-change: opacity, transform;
 }
 
-.section-fade-switch.is-visible {
+.section-fade-switch.is-visible > * {
   opacity: 1;
   transform: translateY(0);
 }
@@ -521,6 +524,10 @@ main {
   }
 
   .section-fade-switch {
+    transition: none;
+  }
+
+  .section-fade-switch > * {
     opacity: 1;
     transform: none;
     transition: none;

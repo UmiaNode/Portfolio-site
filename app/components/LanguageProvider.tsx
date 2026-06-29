@@ -338,7 +338,7 @@ const translations = {
       role: "Web Designer / Developer / Director",
       lead: [
         "訴求整理からデザイン、実装まで。",
-        "Web制作、まるっと任せて任せといてください。",
+        "Web制作、まるっと任せといてください。",
       ],
     },
     nav: { top: "TOP", works: "WORKS", about: "ABOUT", contact: "CONTACT" },
