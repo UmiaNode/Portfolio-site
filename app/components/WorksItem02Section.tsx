@@ -16,8 +16,7 @@ export default function WorksItem02Section() {
   const [isScrollGuideVisible, setIsScrollGuideVisible] = useState(false);
   const [isDetailImageLoaded, setIsDetailImageLoaded] = useState(false);
   const [isMinimumLoadingElapsed, setIsMinimumLoadingElapsed] = useState(false);
-  const isDetailImageLoading =
-    !isDetailImageLoaded || !isMinimumLoadingElapsed;
+  const isDetailImageLoading = !isDetailImageLoaded || !isMinimumLoadingElapsed;
 
   const showScrollGuideIfReady = useCallback(() => {
     if (
@@ -102,7 +101,7 @@ export default function WorksItem02Section() {
           </div>
 
           <div className="flex flex-col gap-8 md:gap-6">
-            <div className="flex flex-col items-start gap-4 md:flex-row">
+            <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.overview}</p>
               <p className="text-sm">
                 {work.overview.map((line) => (
@@ -113,7 +112,7 @@ export default function WorksItem02Section() {
                 ))}
               </p>
             </div>
-            <div className="flex flex-col items-start gap-4 md:flex-row">
+            <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.target}</p>
               <p className="text-sm">
                 {work.target.map((line) => (
@@ -124,7 +123,7 @@ export default function WorksItem02Section() {
                 ))}
               </p>
             </div>
-            <div className="flex flex-col items-start gap-4 md:flex-row">
+            <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.challenge}</p>
               <p className="text-sm">
                 {work.challenge.map((line) => (
@@ -135,7 +134,7 @@ export default function WorksItem02Section() {
                 ))}
               </p>
             </div>
-            <div className="flex flex-col items-start gap-4 md:flex-row">
+            <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.approach}</p>
               <p className="text-sm">
                 {work.approach.map((line) => (
