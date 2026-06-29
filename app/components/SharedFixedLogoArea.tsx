@@ -17,6 +17,7 @@ export default function SharedFixedLogoArea({
   const rootRef = useRef<HTMLDivElement>(null);
   const [logoOpacity, setLogoOpacity] = useState(0);
   const [isLogoActive, setIsLogoActive] = useState(false);
+  const [hasLogoEntered, setHasLogoEntered] = useState(false);
 
   useEffect(() => {
     let animationFrameId = 0;
@@ -48,6 +49,7 @@ export default function SharedFixedLogoArea({
       );
 
       setIsLogoActive(true);
+      setHasLogoEntered(true);
       setLogoOpacity(Math.min(fadeInProgress, fadeOutProgress));
     };
 
@@ -72,11 +74,13 @@ export default function SharedFixedLogoArea({
       <div
         className={`pointer-events-none fixed top-0 right-0 z-0 hidden h-dvh w-[40.3%] items-center justify-center overflow-hidden bg-white transition-opacity duration-300 md:flex ${
           isLogoActive ? "visible" : "invisible"
-        }`}
+        } ${hasLogoEntered ? "has-entered" : ""}`}
         style={{ opacity: logoOpacity }}
         aria-hidden="true"
       >
-        <Image src="/images/umia-logo.svg" alt="" width={191} height={82} />
+        <div className="shared-logo-reveal">
+          <Image src="/images/umia-logo.svg" alt="" width={191} height={82} />
+        </div>
         <p className="font-display absolute right-6 bottom-4 text-xl leading-none">
           ©UMIA
         </p>
