@@ -44,6 +44,20 @@ body {
   transform-origin: top;
 }
 
+.works-route-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: #ffffff;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.works-route-transition.is-active {
+  animation: works-route-transition 560ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
 .page-load-enter #top :where(.font-display, p) {
   animation: page-load-text 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: opacity, filter, transform;
@@ -273,6 +287,28 @@ body {
   }
 }
 
+@keyframes works-route-transition {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  24% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  62% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
 @keyframes load-typing-reveal {
   0% {
     max-width: 0;
@@ -368,6 +404,10 @@ body {
     display: none;
   }
 
+  .works-route-transition {
+    display: none;
+  }
+
   .section-fade-switch {
     opacity: 1;
     transform: none;
@@ -379,6 +419,7 @@ body {
   .contact-form-fields > label,
   .contact-check-mark,
   .site-load-curtain,
+  .works-route-transition.is-active,
   .page-load-enter #top :where(.font-display, p),
   .page-load-enter #top .load-typing-line,
   .page-load-enter #top .load-typing-line::after,
