@@ -241,34 +241,28 @@ html {
   animation: contact-check-mark 520ms ease-out 120ms both;
 }
 
-.language-text-exit :where(h1, h2, h3, p, li, a, button) {
+.language-text-exit .language-change-text {
   animation: language-text-exit 260ms cubic-bezier(0.32, 0, 0.67, 0) both;
   will-change: opacity, filter, transform;
 }
 
-.language-text-enter :where(h1, h2, h3, p, li, a, button) {
+.language-text-enter .language-change-text {
   animation: language-text-enter 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: opacity, filter, transform;
 }
 
-.language-text-exit section:nth-child(2)
-  :where(h1, h2, h3, p, li, a, button),
-.language-text-enter section:nth-child(2)
-  :where(h1, h2, h3, p, li, a, button) {
+.language-text-exit .language-change-text:nth-of-type(2),
+.language-text-enter .language-change-text:nth-of-type(2) {
   animation-delay: 25ms;
 }
 
-.language-text-exit section:nth-child(3)
-  :where(h1, h2, h3, p, li, a, button),
-.language-text-enter section:nth-child(3)
-  :where(h1, h2, h3, p, li, a, button) {
+.language-text-exit .language-change-text:nth-of-type(3),
+.language-text-enter .language-change-text:nth-of-type(3) {
   animation-delay: 50ms;
 }
 
-.language-text-exit section:nth-child(n + 4)
-  :where(h1, h2, h3, p, li, a, button),
-.language-text-enter section:nth-child(n + 4)
-  :where(h1, h2, h3, p, li, a, button) {
+.language-text-exit .language-change-text:nth-of-type(n + 4),
+.language-text-enter .language-change-text:nth-of-type(n + 4) {
   animation-delay: 75ms;
 }
 
@@ -521,8 +515,8 @@ html {
   .page-load-enter .shared-fixed-photo img,
   .section-fade-switch.is-visible h2.font-display,
   .section-fade-switch.is-visible h2.font-display::after,
-  .language-text-exit :where(h1, h2, h3, p, li, a, button),
-  .language-text-enter :where(h1, h2, h3, p, li, a, button) {
+  .language-text-exit .language-change-text,
+  .language-text-enter .language-change-text {
     animation: none;
   }
 }

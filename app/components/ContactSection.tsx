@@ -74,7 +74,7 @@ export default function ContactSection() {
             CONTACT
           </h2>
 
-          <p className="text-sm">{t.contact.lead}</p>
+          <p className="language-change-text text-sm">{t.contact.lead}</p>
 
           <form
             className="flex w-full flex-col gap-6"
@@ -175,7 +175,9 @@ export default function ContactSection() {
             )}
 
             {!googleAppsScriptUrl && (
-              <p className="text-xs text-red-600">{t.contact.missingUrl}</p>
+              <p className="language-change-text text-xs text-red-600">
+                {t.contact.missingUrl}
+              </p>
             )}
 
             {submitStatus === "sending" && (
@@ -184,7 +186,9 @@ export default function ContactSection() {
                 aria-live="polite"
               >
                 <span className="size-2 shrink-0 animate-pulse rounded-full bg-[#393a47]" />
-                <p className="text-sm">{t.contact.sending}</p>
+                <p className="language-change-text text-sm">
+                  {t.contact.sending}
+                </p>
               </div>
             )}
 
@@ -196,7 +200,9 @@ export default function ContactSection() {
                 <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-red-600 text-sm leading-none">
                   !
                 </span>
-                <p className="text-sm">{t.contact.failed}</p>
+                <p className="language-change-text text-sm">
+                  {t.contact.failed}
+                </p>
               </div>
             )}
 
@@ -208,7 +214,9 @@ export default function ContactSection() {
                 <span className="contact-check-mark flex size-7 shrink-0 items-center justify-center rounded-full border border-[#393a47] text-sm leading-none">
                   ✓
                 </span>
-                <p className="text-sm">{t.contact.complete}</p>
+                <p className="language-change-text text-sm">
+                  {t.contact.complete}
+                </p>
               </div>
             )}
 

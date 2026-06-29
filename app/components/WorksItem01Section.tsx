@@ -103,7 +103,7 @@ export default function WorksItem01Section() {
           <div className="flex flex-col gap-8 md:gap-6">
             <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.overview}</p>
-              <p className="text-sm">
+              <p className="language-change-text text-sm">
                 {work.overview.map((line) => (
                   <span key={line}>
                     {line}
@@ -114,7 +114,7 @@ export default function WorksItem01Section() {
             </div>
             <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.target}</p>
-              <p className="text-sm">
+              <p className="language-change-text text-sm">
                 {work.target.map((line) => (
                   <span key={line}>
                     {line}
@@ -125,7 +125,7 @@ export default function WorksItem01Section() {
             </div>
             <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.challenge}</p>
-              <p className="text-sm">
+              <p className="language-change-text text-sm">
                 {work.challenge.map((line) => (
                   <span key={line}>
                     {line}
@@ -136,7 +136,7 @@ export default function WorksItem01Section() {
             </div>
             <div className="flex flex-col items-center gap-4 md:flex-row">
               <p className="w-22 shrink-0 text-lg">{t.common.approach}</p>
-              <p className="text-sm">
+              <p className="language-change-text text-sm">
                 {work.approach.map((line) => (
                   <span key={line}>
                     {line}

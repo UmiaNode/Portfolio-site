@@ -16,19 +16,19 @@ export default function AboutSection() {
           <div className="flex w-full flex-col gap-8 text-sm">
             <div className="flex items-start gap-4">
               <p className="font-display w-20 shrink-0 text-[#868686]">NAME</p>
-              <p>{t.about.name}</p>
+              <p className="language-change-text">{t.about.name}</p>
             </div>
 
             <div className="flex items-start gap-4">
               <p className="font-display w-20 shrink-0 text-[#868686]">
                 CAREER
               </p>
-              <p>{t.about.career}</p>
+              <p className="language-change-text">{t.about.career}</p>
             </div>
 
             <div className="flex items-start gap-4">
               <p className="font-display w-20 shrink-0 text-[#868686]">SKILL</p>
-              <ul className="list-disc pl-5">
+              <ul className="language-change-text list-disc pl-5">
                 {t.about.skills.map((skill) => (
                   <li key={skill}>{skill}</li>
                 ))}
@@ -40,7 +40,7 @@ export default function AboutSection() {
                 <p>WORKS</p>
                 <p className="text-xs">-Private-</p>
               </div>
-              <div>
+              <div className="language-change-text">
                 <ul className="list-disc pl-5">
                   {t.about.privateWorks.map(([title, description]) => (
                     <li key={title}>

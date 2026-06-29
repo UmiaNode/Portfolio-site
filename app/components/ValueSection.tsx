@@ -16,8 +16,8 @@ export default function ValueSection() {
             VALUE
           </h2>
           <div className="flex flex-col gap-6">
-            <p className="text-2xl">{t.value.title}</p>
-            <div className="flex flex-col gap-4 text-sm">
+            <p className="language-change-text text-2xl">{t.value.title}</p>
+            <div className="language-change-text flex flex-col gap-4 text-sm">
               <p>
                 {t.value.body.map((line, index) =>
                   line ? (

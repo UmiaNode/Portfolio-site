@@ -88,7 +88,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <p className="text-sm">
+                <p className="language-change-text text-sm">
                   {t.hero.lead[0]}
                   <br />
                   {t.hero.lead[1]}

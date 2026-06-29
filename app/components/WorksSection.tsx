@@ -41,7 +41,7 @@ export default function WorksSection() {
             WORKS
           </h2>
           <div className="flex flex-col gap-6">
-            <p>
+            <p className="language-change-text">
               {t.works.lead.map((line) => (
                 <span key={line}>
                   {line}
