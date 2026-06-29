@@ -86,7 +86,7 @@ export default function WorksItem02Section() {
     <section
       ref={sectionRef}
       id="works-item02"
-      className="relative flex flex-col py-30 md:min-h-dvh md:flex-row md:py-0"
+      className="relative flex flex-col bg-white py-30 md:min-h-dvh md:flex-row md:py-0"
     >
       <div className="relative order-2 flex w-full items-center bg-white px-6 pt-12 md:order-1 md:w-[59.7%] md:px-16 md:pt-0">
         <div className="flex w-full flex-col gap-12">

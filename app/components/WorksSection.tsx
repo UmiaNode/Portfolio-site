@@ -33,7 +33,7 @@ export default function WorksSection() {
   return (
     <section
       id="works"
-      className="flex flex-col gap-15 py-15 md:min-h-dvh md:flex-row md:gap-0 md:py-0"
+      className="flex flex-col gap-15 bg-white py-15 md:min-h-dvh md:flex-row md:gap-0 md:py-0"
     >
       <div className="relative flex w-full items-center bg-white px-6 md:w-[59.7%] md:px-16">
         <div className="flex flex-col gap-8">

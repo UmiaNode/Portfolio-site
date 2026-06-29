@@ -6,7 +6,10 @@ export default function AboutSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="flex flex-col md:min-h-dvh md:flex-row">
+    <section
+      id="about"
+      className="flex flex-col bg-white md:min-h-dvh md:flex-row"
+    >
       <div className="relative flex w-full items-center bg-white px-6 py-15 md:w-[59.7%] md:px-16 md:py-0">
         <div className="flex w-full flex-col gap-8">
           <h2 className="font-display text-[50px] leading-none tracking-[0.06em] md:text-[90px]">
