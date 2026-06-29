@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  color-scheme: light;
+  color-scheme: only light;
 }
 
 @theme inline {
@@ -19,8 +19,12 @@
   --text-2xl--line-height: 2;
 }
 
+html,
 body {
   background: var(--background);
+}
+
+body {
   color: #393a47;
   font-family: var(--font-line-seed-jp), sans-serif;
   letter-spacing: 0.08em;
@@ -29,8 +33,12 @@ body {
 }
 
 html {
-  background: var(--background);
   scroll-padding-top: 96px;
+}
+
+main {
+  background: var(--background);
+  min-height: 100dvh;
 }
 
 #top,
@@ -170,6 +178,7 @@ html {
 }
 
 .section-fade-switch {
+  background: var(--background);
   opacity: 0;
   transform: translateY(28px);
   transition:
