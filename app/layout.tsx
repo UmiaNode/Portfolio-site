@@ -18,7 +18,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "UMIA Portfolio",
+  title: "Kenichiro Kanamori Portfolio | Web designer",
   description: "Kenichiro Kanamori Portfolio Site",
 };
 
