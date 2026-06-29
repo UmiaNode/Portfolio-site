@@ -14,6 +14,10 @@ export default function WorksItem01Section() {
   const hasScrollGuideTriggeredRef = useRef(false);
   const isScrollGuideDismissedRef = useRef(false);
   const [isScrollGuideVisible, setIsScrollGuideVisible] = useState(false);
+  const [isDetailImageLoaded, setIsDetailImageLoaded] = useState(false);
+  const [isMinimumLoadingElapsed, setIsMinimumLoadingElapsed] = useState(false);
+  const isDetailImageLoading =
+    !isDetailImageLoaded || !isMinimumLoadingElapsed;
 
   const showScrollGuideIfReady = useCallback(() => {
     if (
@@ -60,6 +64,14 @@ export default function WorksItem01Section() {
     return () => window.clearTimeout(timerId);
   }, [isScrollGuideVisible]);
 
+  useEffect(() => {
+    const timerId = window.setTimeout(() => {
+      setIsMinimumLoadingElapsed(true);
+    }, 700);
+
+    return () => window.clearTimeout(timerId);
+  }, []);
+
   const hideScrollGuide = () => {
     isScrollGuideDismissedRef.current = true;
     setIsScrollGuideVisible(false);
@@ -67,6 +79,7 @@ export default function WorksItem01Section() {
 
   const handleImageLoad = () => {
     isImageLoadedRef.current = true;
+    setIsDetailImageLoaded(true);
     showScrollGuideIfReady();
   };
 
@@ -176,6 +189,16 @@ export default function WorksItem01Section() {
           <div className="flex h-16 w-8 justify-center rounded-full border border-white/90 bg-white/15 pt-3 shadow-[0_12px_30px_rgba(57,58,71,0.35)] backdrop-blur-sm">
             <div className="h-3 w-1 animate-bounce rounded-full bg-white" />
           </div>
+        </div>
+        <div
+          aria-live="polite"
+          className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-[#f6fdfe] transition-opacity duration-500 ${
+            isDetailImageLoading ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <p className="font-display text-sm tracking-[0.16em] text-[#393a47]">
+            loading...
+          </p>
         </div>
       </div>
     </section>
