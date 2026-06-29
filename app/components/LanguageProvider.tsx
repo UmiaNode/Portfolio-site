@@ -147,7 +147,7 @@ const translations = {
       skills: [
         "Webデザイン / グラフィックデザイン",
         "アートディレクション / 制作ディレクション",
-        "コーディング（HTML / CSS / JavaScript / GSAP / Astro / WordPress など）",
+        "コーディング（HTML / CSS / JavaScript / GSAP / Astro / WordPress / Next.js / React など）",
       ],
       privateWorks: [
         [
@@ -446,7 +446,7 @@ const translations = {
       skills: [
         "Webデザイン / グラフィックデザイン",
         "アートディレクション / 制作ディレクション",
-        "コーディング（HTML / CSS / JavaScript / GSAP / Astro / WordPress など）",
+        "コーディング（HTML / CSS / JavaScript / GSAP / Astro / WordPress / Next.js / React など）",
       ],
       privateWorks: [
         [
