@@ -21,10 +21,13 @@
 
 html,
 body {
-  background: var(--background);
+  background: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 body {
+  position: relative;
+  min-height: 100dvh;
   color: #393a47;
   font-family: var(--font-line-seed-jp), sans-serif;
   letter-spacing: 0.08em;
@@ -32,12 +35,21 @@ body {
   font-size: 14px;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: #ffffff;
+}
+
 html {
   scroll-padding-top: 96px;
 }
 
 main {
-  background: var(--background);
+  background: #ffffff;
   min-height: 100dvh;
 }
 
