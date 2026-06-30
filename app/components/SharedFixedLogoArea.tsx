@@ -48,9 +48,14 @@ export default function SharedFixedLogoArea({
         1,
       );
 
+      const nextLogoOpacity = Math.min(fadeInProgress, fadeOutProgress);
+
       setIsLogoActive(true);
-      setHasLogoEntered(true);
-      setLogoOpacity(Math.min(fadeInProgress, fadeOutProgress));
+      setLogoOpacity(nextLogoOpacity);
+
+      if (nextLogoOpacity > 0.35) {
+        setHasLogoEntered(true);
+      }
     };
 
     const requestUpdate = () => {
