@@ -72,7 +72,7 @@ export default function SharedFixedLogoArea({
   return (
     <div ref={rootRef} className="relative">
       <div
-        className={`pointer-events-none fixed top-0 right-0 z-0 hidden h-dvh w-[40.3%] items-center justify-center overflow-hidden bg-white transition-opacity duration-300 md:flex ${
+        className={`pointer-events-none fixed top-0 right-0 z-10 hidden h-dvh w-[40.3%] items-center justify-center overflow-hidden bg-white transition-opacity duration-300 md:flex ${
           isLogoActive ? "visible" : "invisible"
         } ${hasLogoEntered ? "has-entered" : ""}`}
         style={{ opacity: logoOpacity }}
